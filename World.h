@@ -13,7 +13,7 @@ public:
 
 	virtual void Tick();
 
-	AActor GetAllActor();
+	AActor GetPlayer();
 
 	std::vector<AActor*> Actors;
 	APlayer Player;

@@ -20,7 +20,15 @@ FEngine::~FEngine()
 void FEngine::Init()
 {
 	World = new UWorld();
-	
+
+	std::ifstream File;
+	File.open("Level01.map");
+	if (File.is_open())
+	{
+
+		File.getline();
+	}
+	File.close();
 }
 
 void FEngine::Run()
@@ -45,10 +53,11 @@ void FEngine::Tick()
 
 void FEngine::Render()
 {
-	AActor Actor = World->GetAllActor();
+	AActor Actor = World->GetPlayer();
 	COORD Cur;
 	Cur.X = Actor.Location.X;
 	Cur.Y = Actor.Location.Y;
+
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
 
 	std::cout << Actor.Shape << std::endl;
