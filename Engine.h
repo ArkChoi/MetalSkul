@@ -19,3 +19,4 @@ protected:
 	void Render();
 };
 
+#define Engine 
