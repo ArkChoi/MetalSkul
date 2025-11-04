@@ -1,5 +1,9 @@
 #include "Engine.h"
 
+#include <iostream>
+#include <fstream>
+#include <windows.h>
+
 FEngine::FEngine()
 {
 	World = nullptr;
@@ -16,10 +20,14 @@ FEngine::~FEngine()
 void FEngine::Init()
 {
 	World = new UWorld();
+	
 }
 
 void FEngine::Run()
 {
+	Input();
+	Tick();
+	Render();
 }
 
 void FEngine::Term()
@@ -32,8 +40,16 @@ void FEngine::Input()
 
 void FEngine::Tick()
 {
+	
 }
 
 void FEngine::Render()
 {
+	AActor Actor = World->GetAllActor();
+	COORD Cur;
+	Cur.X = Actor.Location.X;
+	Cur.Y = Actor.Location.Y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
+
+	std::cout << Actor.Shape << std::endl;
 }

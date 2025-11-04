@@ -1,18 +1,20 @@
 #include <iostream>
-#include <windows.h>
-
-#include "Player.h"
+#include "Engine.h"
 
 int main()
 {
-    APlayer Player;
+    FEngine* MyEngine;
+    MyEngine = new FEngine();
 
-    COORD Cur;
-    Cur.X = Player.Location.X;
-    Cur.Y = Player.Location.Y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
+    bool bIsRun = true;
+    while (bIsRun)
+    {
+        MyEngine->Init();
+        MyEngine->Run();
+        MyEngine->Term();
+    }
 
-    std::cout << Player.Shape << std::endl;
+    delete MyEngine;
 
 	return 0;
 }
