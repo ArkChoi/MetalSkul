@@ -13,7 +13,7 @@ void UWorld::Tick()
 
 }
 
-AActor UWorld::GetAllActor()
+AActor UWorld::GetPlayer()
 {
 	return Player;
 }
