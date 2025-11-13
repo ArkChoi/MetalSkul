@@ -4,6 +4,8 @@
 #include <fstream>
 #include <windows.h>
 
+#include<string>
+
 FEngine::FEngine()
 {
 	World = nullptr;
@@ -25,8 +27,12 @@ void FEngine::Init()
 	File.open("Level01.map");
 	if (File.is_open())
 	{
-
-		File.getline(,);
+		char Buffer[1024] = { 0, };
+		while (File.getline(Buffer, 255))
+		{
+			std::string str = Buffer;
+			std::cout << str << std::endl;
+		}
 	}
 	File.close();
 }
@@ -53,12 +59,12 @@ void FEngine::Tick()
 
 void FEngine::Render()
 {
-	AActor Actor = World->GetPlayer();
+	/*AActor Actor = World->GetPlayer();
 	COORD Cur;
 	Cur.X = Actor.Location.X;
 	Cur.Y = Actor.Location.Y;
 
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
 
-	std::cout << Actor.Shape << std::endl;
+	std::cout << Actor.Shape << std::endl;*/
 }
