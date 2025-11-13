@@ -7,12 +7,12 @@ int main()
     MyEngine = new FEngine();
 
     bool bIsRun = true;
+    MyEngine->Init();
     while (bIsRun)
     {
-        MyEngine->Init();
         MyEngine->Run();
-        MyEngine->Term();
     }
+    MyEngine->Term();
 
     delete MyEngine;
 

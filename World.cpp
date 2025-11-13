@@ -1,4 +1,5 @@
 #include "World.h"
+#include "Actor.h"
 
 UWorld::UWorld()
 {
@@ -10,7 +11,10 @@ UWorld::~UWorld()
 
 void UWorld::Tick()
 {
-
+	for (int i = 0; i < Actors.size() ; i++)
+	{
+		Actors[i]->Tick();
+	}
 }
 
 void UWorld::CreateDefaultSubobject(AActor* NewActor)

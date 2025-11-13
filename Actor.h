@@ -7,8 +7,9 @@ public:
 	AActor();
 	virtual ~AActor();
 
-	void Tick();
+	virtual void Tick();
 
+public:
 	FVector2D Location;
 	char Shape;
 };

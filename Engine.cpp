@@ -104,7 +104,7 @@ void FEngine::Input()
 
 void FEngine::Tick()
 {
-	
+	World->Tick();
 }
 
 void FEngine::Render()
