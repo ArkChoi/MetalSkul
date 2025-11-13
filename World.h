@@ -2,8 +2,6 @@
 #include <vector>
 class AActor;
 
-//나중에 지워줘요
-#include "Player.h"
 
 class UWorld
 {
@@ -13,9 +11,12 @@ public:
 
 	virtual void Tick();
 
-	AActor GetPlayer();
+	void CreateDefaultSubobject(AActor* NewActor);
 
+	std::vector<AActor*> GetAllActors();
+
+public:
 	std::vector<AActor*> Actors;
-	APlayer Player;
+	
 };
 

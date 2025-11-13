@@ -13,7 +13,14 @@ void UWorld::Tick()
 
 }
 
-AActor UWorld::GetPlayer()
+void UWorld::CreateDefaultSubobject(AActor* NewActor)
 {
-	return Player;
+	Actors.push_back(NewActor);
 }
+
+std::vector<AActor*> UWorld::GetAllActors()
+{
+	return Actors;
+}
+
+

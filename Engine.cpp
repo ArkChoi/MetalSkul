@@ -3,8 +3,14 @@
 #include <iostream>
 #include <fstream>
 #include <windows.h>
+#include <string>
+#include <vector>
 
-#include<string>
+#include "Floor.h"
+#include "Wall.h"
+#include "Player.h"
+#include "Enemy.h"
+#include "Goal.h"
 
 FEngine::FEngine()
 {
@@ -22,6 +28,7 @@ FEngine::~FEngine()
 void FEngine::Init()
 {
 	World = new UWorld();
+	int Y = 0;
 
 	std::ifstream File;
 	File.open("Level01.map");
@@ -30,8 +37,51 @@ void FEngine::Init()
 		char Buffer[1024] = { 0, };
 		while (File.getline(Buffer, 255))
 		{
-			std::string str = Buffer;
-			std::cout << str << std::endl;
+			std::string Temps = Buffer;
+			for (int X = 0 ; X < Temps.size() ; X++)
+			{
+				if (Temps[X] == ' ')
+				{
+					class AFloor* NewActor = new AFloor();
+					NewActor->Location.X = X;
+					NewActor->Location.Y = Y;
+					NewActor->Shape = ' ';
+					World->CreateDefaultSubobject(NewActor);
+				}
+				else if (Temps[X] == '*')
+				{
+					class AWall* NewActor = new AWall();
+					NewActor->Location.X = X;
+					NewActor->Location.Y = Y;
+					NewActor->Shape = '*';
+					World->CreateDefaultSubobject(NewActor);
+				}
+				else if (Temps[X] == 'P')
+				{
+					class APlayer* NewActor = new APlayer();
+					NewActor->Location.X = X;
+					NewActor->Location.Y = Y;
+					NewActor->Shape = 'P';
+					World->CreateDefaultSubobject(NewActor);
+				}
+				else if (Temps[X] == 'M')
+				{
+					class AEnemy* NewActor = new AEnemy();
+					NewActor->Location.X = X;
+					NewActor->Location.Y = Y;
+					NewActor->Shape = 'M';
+					World->CreateDefaultSubobject(NewActor);
+				}
+				else if (Temps[X] == 'G')
+				{
+					class AGoal* NewActor = new AGoal();
+					NewActor->Location.X = X;
+					NewActor->Location.Y = Y;
+					NewActor->Shape = 'G';
+					World->CreateDefaultSubobject(NewActor);
+				}
+			}
+			Y++;
 		}
 	}
 	File.close();
@@ -59,12 +109,14 @@ void FEngine::Tick()
 
 void FEngine::Render()
 {
-	/*AActor Actor = World->GetPlayer();
+	std::vector<AActor*> Actors = World->GetAllActors();
 	COORD Cur;
-	Cur.X = Actor.Location.X;
-	Cur.Y = Actor.Location.Y;
 
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
-
-	std::cout << Actor.Shape << std::endl;*/
+	for (int i=0 ; i<Actors.size() ; i++)
+	{
+		Cur.X = Actors[i]->Location.X;
+		Cur.Y = Actors[i]->Location.Y;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
+		std::cout << Actors[i]->Shape << std::endl;
+	}
 }
