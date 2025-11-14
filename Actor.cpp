@@ -13,3 +13,8 @@ void AActor::Tick()
 {
 
 }
+
+int AActor::GetZOder()
+{
+	return ZOder;
+}

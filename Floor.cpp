@@ -2,6 +2,7 @@
 
 AFloor::AFloor()
 {
+	ZOder = 0;
 }
 
 AFloor::~AFloor()

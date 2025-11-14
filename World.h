@@ -15,6 +15,8 @@ public:
 
 	std::vector<AActor*> GetAllActors();
 
+	void SequentialSort();
+
 public:
 	std::vector<AActor*> Actors;
 	

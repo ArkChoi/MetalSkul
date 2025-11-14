@@ -2,6 +2,7 @@
 
 AGoal::AGoal()
 {
+	ZOder = 1;
 }
 
 AGoal::~AGoal()

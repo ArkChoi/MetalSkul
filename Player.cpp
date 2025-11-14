@@ -3,7 +3,7 @@
 
 APlayer::APlayer()
 {
-
+	ZOder = 3;
 }
 
 APlayer::~APlayer()

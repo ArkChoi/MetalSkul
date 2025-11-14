@@ -27,4 +27,15 @@ std::vector<AActor*> UWorld::GetAllActors()
 	return Actors;
 }
 
+void UWorld::SequentialSort()
+{
+	int LowZOder;
+	for (int i = 0; i < Actors.size(); i++)
+	{
+		LowZOder = Actors[i]->GetZOder();
+
+
+	}
+}
+
 
