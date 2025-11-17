@@ -8,3 +8,8 @@ AWall::AWall()
 AWall::~AWall()
 {
 }
+
+int AWall::GetZOder()
+{
+	return ZOder;
+}

@@ -16,6 +16,11 @@ void APlayer::Tick()
 	Move();
 }
 
+int APlayer::GetZOder()
+{
+	return ZOder;
+}
+
 void APlayer::Move()
 {
     if (_kbhit() != 0) {
@@ -23,10 +28,10 @@ void APlayer::Move()
 		switch (keyCode)
 		{
 		case 'w':
-			Location.Y++;
+			Location.Y--;
 			break;
 		case 's':
-			Location.Y--;
+			Location.Y++;
 			break;
 		case 'a':
 			Location.X--;

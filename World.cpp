@@ -30,10 +30,25 @@ std::vector<AActor*> UWorld::GetAllActors()
 void UWorld::SequentialSort()
 {
 	int LowZOder;
+	int LowIndex;
+
 	for (int i = 0; i < Actors.size(); i++)
 	{
 		LowZOder = Actors[i]->GetZOder();
+		LowIndex = i;
 
+		for (int j = (i + 1) ; j < Actors.size() ; j++)
+		{
+			if (LowZOder > Actors[j]->GetZOder())
+			{
+				LowZOder = Actors[j]->GetZOder();
+				LowIndex = j;
+			}
+		}
+
+		AActor* TempActor = Actors[i];
+		Actors[i] = Actors[LowIndex];
+		Actors[LowIndex] = TempActor;
 
 	}
 }

@@ -5,5 +5,7 @@ class AEnemy : public AActor
 public:
 	AEnemy();
 	virtual ~AEnemy();
+
+	virtual int GetZOder() override;
 };
 

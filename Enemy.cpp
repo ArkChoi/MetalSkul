@@ -8,3 +8,8 @@ AEnemy::AEnemy()
 AEnemy::~AEnemy()
 {
 }
+
+int AEnemy::GetZOder()
+{
+	return ZOder;
+}

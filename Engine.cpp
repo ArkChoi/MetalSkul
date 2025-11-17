@@ -85,6 +85,8 @@ void FEngine::Init()
 		}
 	}
 	File.close();
+
+	World->SequentialSort();
 }
 
 void FEngine::Run()

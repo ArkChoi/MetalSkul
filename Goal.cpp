@@ -8,3 +8,8 @@ AGoal::AGoal()
 AGoal::~AGoal()
 {
 }
+
+int AGoal::GetZOder()
+{
+	return ZOder;
+}

@@ -8,6 +8,8 @@ public:
 
 	virtual void Tick() override;
 
+	virtual int GetZOder() override;
+
 protected:
 	void Move();
 };

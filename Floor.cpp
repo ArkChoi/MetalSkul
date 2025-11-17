@@ -8,3 +8,8 @@ AFloor::AFloor()
 AFloor::~AFloor()
 {
 }
+
+int AFloor::GetZOder()
+{
+	return ZOder;
+}
