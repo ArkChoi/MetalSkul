@@ -13,3 +13,8 @@ int AWall::GetZOder()
 {
 	return ZOder;
 }
+
+UCollsionComponent* AWall::GetActorCollisionComponent()
+{
+	return Collision;
+}

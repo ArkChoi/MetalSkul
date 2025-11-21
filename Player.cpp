@@ -1,4 +1,6 @@
 #include "Player.h"
+#include "Engine.h"
+
 #include <conio.h>
 
 APlayer::APlayer()
@@ -21,8 +23,15 @@ int APlayer::GetZOder()
 	return ZOder;
 }
 
+UCollsionComponent* APlayer::GetActorCollisionComponent()
+{
+	return Collision;
+}
+
 void APlayer::Move()
 {
+	FVector2D TempLocation = Location;
+
     if (_kbhit() != 0) {
         char keyCode = _getch();
 		switch (keyCode)
@@ -43,4 +52,16 @@ void APlayer::Move()
 			break;
 		}
     }
+
+	std::vector<AActor*> TempActors = GEngine->World->GetAllActors();
+	for (AActor* Actor : TempActors)
+	{
+		if (this->Location == Actor->Location)
+		{
+			if ()
+			{
+
+			}
+		}
+	}
 }

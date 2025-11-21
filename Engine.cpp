@@ -40,15 +40,14 @@ void FEngine::Init()
 			std::string Temps = Buffer;
 			for (int X = 0 ; X < Temps.size() ; X++)
 			{
-				if (Temps[X] == ' ')
-				{
-					class AFloor* NewActor = new AFloor();
-					NewActor->Location.X = X;
-					NewActor->Location.Y = Y;
-					NewActor->Shape = ' ';
-					World->CreateDefaultSubobject(NewActor);
-				}
-				else if (Temps[X] == '*')
+				
+				class AFloor* NewActor = new AFloor();
+				NewActor->Location.X = X;
+				NewActor->Location.Y = Y;
+				NewActor->Shape = ' ';
+				World->CreateDefaultSubobject(NewActor);
+				
+				if (Temps[X] == '*')
 				{
 					class AWall* NewActor = new AWall();
 					NewActor->Location.X = X;
@@ -98,6 +97,15 @@ void FEngine::Run()
 
 void FEngine::Term()
 {
+}
+
+FEngine* FEngine::GetInstance()
+{
+	if (Instance == nullptr)
+	{
+		Instance = new FEngine();
+	}
+	return Instance;
 }
 
 void FEngine::Input()

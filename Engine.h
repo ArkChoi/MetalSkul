@@ -13,10 +13,15 @@ public:
 
 	UWorld* World;
 
+	static FEngine* GetInstance();
+
 protected:
 	void Input();
 	void Tick();
 	void Render();
+
+protected:
+	static FEngine* Instance;
 };
 
-#define Engine 
+#define GEngine		FEngine::GetInstance() 
