@@ -3,18 +3,9 @@
 
 int main()
 {
-    FEngine* MyEngine;
-    MyEngine = new FEngine();
-
-    bool bIsRun = true;
-    MyEngine->Init();
-    while (bIsRun)
-    {
-        MyEngine->Run();
-    }
-    MyEngine->Term();
-
-    delete MyEngine;
+	GEngine->Init();
+	GEngine->Run();
+	GEngine->Term();
 
 	return 0;
 }

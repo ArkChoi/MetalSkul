@@ -14,9 +14,9 @@ struct FVector2D
 		return false;
 	}
 
-	const FVector2D& operator=(const FVector2D& RHS)
+	/*const FVector2D& operator=(const FVector2D& RHS)
 	{
 		this->X = RHS.X;
 		this->Y = RHS.Y;
-	}
+	}*/
 };

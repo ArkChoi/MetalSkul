@@ -58,10 +58,10 @@ void APlayer::Move()
 	{
 		if (this->Location == Actor->Location)
 		{
-			if ()
+			/*if ()
 			{
 
-			}
+			}*/
 		}
 	}
 }

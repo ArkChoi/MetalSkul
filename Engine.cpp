@@ -12,6 +12,8 @@
 #include "Enemy.h"
 #include "Goal.h"
 
+FEngine* FEngine::Instance = nullptr;
+
 FEngine::FEngine()
 {
 	World = nullptr;
@@ -90,9 +92,12 @@ void FEngine::Init()
 
 void FEngine::Run()
 {
-	Input();
-	Tick();
-	Render();
+	while (BIsRunning)
+	{
+		Input();
+		Tick();
+		Render();
+	}
 }
 
 void FEngine::Term()
@@ -120,9 +125,16 @@ void FEngine::Tick()
 void FEngine::Render()
 {
 	std::vector<AActor*> Actors = World->GetAllActors();
+
 	COORD Cur;
 
-	for (int i=0 ; i<Actors.size() ; i++)
+	CONSOLE_CURSOR_INFO cursorInfo = { 0, };
+	cursorInfo.dwSize = 1;
+	cursorInfo.bVisible = FALSE;
+
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
+
+	for (int i = 0; i < Actors.size(); i++)
 	{
 		Cur.X = Actors[i]->Location.X;
 		Cur.Y = Actors[i]->Location.Y;

@@ -3,8 +3,10 @@
 
 class FEngine
 {
-public:
+protected:
 	FEngine();
+
+public:
 	virtual ~FEngine();
 
 	void Init();
@@ -22,6 +24,8 @@ protected:
 
 protected:
 	static FEngine* Instance;
+
+	bool BIsRunning = true;
 };
 
 #define GEngine		FEngine::GetInstance() 
