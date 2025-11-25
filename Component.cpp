@@ -18,3 +18,8 @@ void UComponent::SetOwner(AActor* InOwner)
 {
 	Owner = InOwner;
 }
+
+int UComponent::GetComponentID()
+{
+	return ComponentID;
+}

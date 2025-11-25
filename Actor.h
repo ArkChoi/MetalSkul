@@ -1,5 +1,6 @@
 #pragma once
 #include "FVector2D.h"
+#include "LinkedList.h"
 
 class UComponent;
 
@@ -20,6 +21,6 @@ public:
 	FVector2D Location;
 	char Shape;
 	int ZOder;
-	//스택 구조 구현해서 컴포넌트 저장하는거 해보자..
+	TLinkedList* Components;
 };
 

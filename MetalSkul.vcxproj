@@ -145,6 +145,7 @@
     <ClInclude Include="Floor.h" />
     <ClInclude Include="FVector2D.h" />
     <ClInclude Include="Goal.h" />
+    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="SceneComponent.h" />
     <ClInclude Include="Wall.h" />

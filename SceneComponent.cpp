@@ -17,3 +17,8 @@ void USceneComponent::Tick()
 void USceneComponent::Render()
 {
 }
+
+int USceneComponent::GetComponentID()
+{
+	return ComponentID;
+}

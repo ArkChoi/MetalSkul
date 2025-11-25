@@ -13,7 +13,10 @@ public:
 	AActor* GetOwner() const;
 	void SetOwner(AActor* InOwner);
 
+	virtual int GetComponentID();
+
 protected:
 	AActor* Owner;
+	int ComponentID = 0;
 };
 
