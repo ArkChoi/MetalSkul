@@ -5,5 +5,8 @@ struct TLinkedList
 {
 	TLinkedList* Behind;
 	UComponent* Data;
+
+public:
+	UComponent* GetComponentByClass();
 };
 

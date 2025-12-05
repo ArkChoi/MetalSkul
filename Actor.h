@@ -14,13 +14,13 @@ public:
 
 	virtual int GetZOder();
 
-	UComponent* GetComponentByClass();
+	void AddComponents(UComponent* NewComponents);
 
 
 public:
 	FVector2D Location;
 	char Shape;
 	int ZOder;
-	TLinkedList* Components;
+	TLinkedList* Components = nullptr;
 };
 
